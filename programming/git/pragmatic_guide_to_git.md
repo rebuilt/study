@@ -124,12 +124,24 @@ bash git config --global core.excludesfile ~/.gitignore
 ```
 
 ### Undoing uncommitted changes
-Undo staged changes to an existing file
+Unstage changes to an existing file
 ```bash
 git reset HEAD
 ```
 
-Undo staged new-file
+Unstage new-file
 ```bash
 git rm --cached
 ```
+
+Unstage cache.py
+```bash
+git reset HEAD -- cache.py
+```
+
+Delete changes to a file. Cannot be undone.
+```bash
+git checkout -- cache.py
+```
+
+### Moving files in git
