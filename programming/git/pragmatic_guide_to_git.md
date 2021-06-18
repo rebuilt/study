@@ -619,4 +619,151 @@ git stash branch [<stash name>]
 ```
 
 ### Cherry-Picking commits
+Merge a single commit from another branch into your local one
+```bash
+git cherry-pick <some commit id>
+git cherry-pick release_1.0
+git cherry-pick a742c12
+```
+
+Cherry-pick but edit the commit message before committing
+```bash
+git cherry-pick --edit release_1.0
+git cherry-pick -e release_1.0
+```
+
+Cherry-pick but don't commit
+```bash
+git cherry-pick --no-commit release_1.0
+git cherry-pick -n release_1.0
+```
+
+Add a 'signed-off-by' line to the commit message
+```bash
+git cherry-pick --signoff release_1.0
+git cherry-pick -s release_1.0
+```
+
+### Controlling how you replay commits
+
+Start interactive rebase
+```bash
+git rebase -i <commit id>
+git rebase -i HEAD~5
+git rebase -i HEAD^^^^^
+```
+
+### Moving branches
+
+Move branch better-widget from next-release to master
+```bash
+git rebase --onto master next-release better-widget
+```
+
+```
+# before
+master
+    next-release
+        better-widget
+
+# After
+master 
+    next-release
+    better-widget
+```
+
+## Working with the repository's history
+
+### Viewing the log
+
+View a reverse chronological list of all commits
+```bash
+git log
+```
+
+View the log with one shortened commit ID and subject
+```bash
+git log --oneline
+```
+
+View the last N commits
+```bash
+git log -N
+git log -5
+git log HEAD^^^^^..HEAD
+git log -10
+git log HEAD~10..HEAD
+```
+
+Show the changes made in the latest commit
+```bash
+git log -1 -p HEAD
+```
+
+### Filtering the log output
+
+Limit the log output to a single file or directory
+```bash
+git log -- some/path
+git log -- some_file
+```
+
+View the commits in the last week
+```bash
+git log --since="1 week"
+git log --after="7 days"
+git log --since="168 hours"
+```
+
+View the commits prior to the last week
+```bash
+git log --before="1 week"
+git log --until="7 days"
+git log --before="168 hours"
+```
+
+View the log entries by a single committer
+```bash
+git log --author="Some user"
+```
+
+View the log entries containing a regular expression
+```bash
+git log --grep="Some [Rr]eg[Ee]x"
+git log --grep="some regex" --regexp-ignore-case
+git log --grep="some regex" -i
+```
+
+### Comparing differences
+
+View the differences between the current working tree and the staging area
+```bash
+git diff
+```
+
+View the differences between the staged changes and repository
+```bash
+git diff --staged
+```
+
+View the differences between the working tree and a commit in the repository
+```bash
+git diff HEAD
+git diff Commit ID
+```
+
+View the differences between two "commits"
+```bash
+git diff first second
+git diff first..second
+git diff 23as45 1e234c
+git diff 23as45..1e234c
+```
+
+Limit the diff output to a specific path
+```bash
+git diff -- path/
+```
+
+### Generating statistics about changes
 
