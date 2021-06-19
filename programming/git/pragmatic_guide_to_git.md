@@ -766,4 +766,75 @@ git diff -- path/
 ```
 
 ### Generating statistics about changes
+Show stats between the last ten commits
+```bash
+git diff --stat HEAD~10
+git diff --stat HEAD~10 HEAD
+```
+
+Show the statistics between two commits
+```bash
+git diff --stat first second
+git diff --stat 234ef2 1e231w
+```
+
+Show the number of files changed, inserts, and delete the last ten commits
+```bash
+git diff --shortsat HEAD~10
+```
+
+Show stats in a parseable format
+```bash
+git diff --numstat HEAD~10
+```
+
+Show the patch in addition to the statistical information
+```bash
+git diff --stat -p HEAD^
+```
+
+Show statistics about commits in the log
+```bash
+git log --stat
+git log --shortstat
+```
+
+### Assigning blame
+
+Display file with entire line-by-line commit information
+```bash
+git blame some/file
+```
+
+Start the output of blame at line 10
+```bash
+git blame -L 10 some/file
+```
+
+Limit the output of blame to 10 lines 10 through 20
+```bash
+git blame -L 10,20 some/file
+git blame -L 10,+11 some/file
+git blame -L 10,-11 some/file
+```
+
+Show ten lines of output from blame starting at a posix regular expression
+```bash
+git blame -L "/dev to_s/",+10 some/file
+```
+
+Check the history to see the change was moved, and display that information
+```bash
+git blame -M some/file
+```
+
+Check the history to see whether the change was copied from somewhere else or
+moved around within the file and display that information
+```bash
+git blame -C some/file
+```
+
+<!-- ## Fixing things -->
+
+
 
