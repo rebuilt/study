@@ -834,7 +834,7 @@ moved around within the file and display that information
 git blame -C some/file
 ```
 
-<!-- ## Fixing things -->
+## Fixing things
 
 
 
