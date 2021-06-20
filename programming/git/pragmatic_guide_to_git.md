@@ -950,5 +950,106 @@ Use a shortcut to start bisect with HEAD beaing bad
 git bisect start HEAD <some good commit id>
 ```
 
+Use a shortcut to start bisect with HEAD being bad
+```bash
+git bisect start HEAD <some good commit id>
+```
+
+Use an automated script to test commits
+
+```bash
+git bisect start HEAD <some good commit id>
+git bisect run /path/to/test/script
+# once you've figured out the fix
+git bisect reset
+```
+
+Use a shortcut to start bisect with HEAD being bad
+```bash
+git bisect start HEAD <some good commit id>
+```
+
+Use an automated script to test commits
+```bash
+git bisect start HEAD <some good commit id>
+git bisect run /path/to/test/script
+# once you've figured out the fix
+git bisect reset
+```
+
+### Retrieving "lost" commits
+
+View the reflog
+```bash
+git reflog
+```
+
+Retrieve a lost commit
+```bash
+# lose a commit 
+mkdir work/tmp-repo && cd work/tmp-repo
+git init
+for i in a b c d 
+do echo "simple $i" >> $i && git add $i && git commit -m "simple $i"
+done
+
+git rebase -i HEAD~2
+# delete the 'simple b' commit
+git log --oneline
+```
+
+## Moving beyond the basics
+
+### Exporting your repository
+
+Create a tar.gz file of the latest changes in master
+```bash
+git archive --format=tar \
+--prefix=my-project-latest/ \
+HEAD | gzip > my-project-latest.tar.gz
+
+#or
+git archive --prefix=my-project-latest \
+--output my-project-latest.tar && \
+gzip my-project-latest
+```
+
+Create a zip of the repository at tag v1.0.2
+```bash
+git archive --format=zip \
+--prefix=my-project-1.0.2/ \
+v1.0.2 > my-project-1.0.2.zip
+
+# or
+git archive --prefix=my-project-1.0.2/ \
+v1.0.2 -o myproject-1.0.2.zip
+```
+
+Export one directory
+```bash
+git archive --format=zip \
+--prefix=my-project/ \
+HEAD:<some directory> > my-project.zip
+```
+
+### Doing some git housekeeping
+
+Run garbage collection
+```bash
+git gc
+```
+
+Run garbage collection in the most optimized way
+```bash
+git gc --aggressive
+```
+
+
+
+
+
+
+
+
 
 
