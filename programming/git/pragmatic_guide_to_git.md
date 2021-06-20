@@ -835,6 +835,32 @@ git blame -C some/file
 ```
 
 ## Fixing things
+### Fixing Commits
 
+Amend the previous commit
+```bash
+git commit --amend
+```
 
+Amend the previous commit, and keep the same log message
+```bash
+git commit --amend -C HEAD
+```
+
+Fix the previous commit by removing it entirely
+```bash
+git reset --hard HEAD^
+```
+
+Use interactive rebase to edit a commit other than the last one
+```bash
+git rebase -i HEAD~3
+# Launches editor.  Mark the first commit (the one you want to change as "edit"
+instead of "pick", then save and exit)
+# Make the change you want to commit, then:
+git commit --ammend
+git rebase --continue
+```
+
+### Reverting commits
 
