@@ -863,4 +863,4 @@ git rebase --continue
 ```
 
 ### Reverting commits
-trash content that must get removed
+
