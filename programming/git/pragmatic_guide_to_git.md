@@ -485,28 +485,33 @@ git fetch --multiple remote1 remote2 remote3
 ```
 
 ### Retrieving remote changes (Pulling)
+
 Pulling performs a fetch to retrieve updates from a remote repository and then
 merges those changes automatically.
 
 Pull changes from a remote repository
+
 ```bash
 git pull [name [branch name]]
 git pull tswicegood master
 ```
 
 Pull changes from a different branch into your local branch
+
 ```bash
 git pull origin <remote branch>
 git pull tswicegood master
 ```
 
 Pull changes from a different branch into your local branch
+
 ```bash
 git pull origin <remote branch>:<local branch>
 git pull origin development:team-dev
 ```
 
 Pull changes and rebase instead of merge
+
 ```bash
 git pull --rebase origin master
 ```
@@ -514,27 +519,32 @@ git pull --rebase origin master
 ### Sending changes to remotes
 
 Push the local tracking branch to your origin
+
 ```bash
 git push
 ```
 
 Push first set of changes from master to your origin
+
 ```
 git push origin master
 ```
 
 Push changes from a specific branch to a specific remote repository
+
 ```bash
 git push <remote name> <branch name>
 git push tswicegood development
 ```
 
 Push changes from the local master branch to the remote production branch
+
 ```bash
 git push origin master:production
 ```
 
 Force a remote branch to accept a push
+
 ```bash
 git push --force
 ```
@@ -542,16 +552,19 @@ git push --force
 ### Handling remote tags and branches
 
 Push tag v1.0 to the origin
+
 ```bash
 git push origin v1.0
 ```
 
 Push all tags to the origin
+
 ```bash
 git push --tags origin
 ```
 
 Fetch remote tags and update local tags
+
 ```bash
 git fetch --tags origin
 ```
@@ -561,16 +574,19 @@ git fetch --tags origin
 ### Handling conflicts
 
 Launch a mergetool to handle a conflict.
+
 ```bash
 git mergetool
 ```
 
 Set meld as the default mergetool
+
 ```bash
 git config --global merge.tool "meld"
 ```
 
 Use the perforce visual merge tool on windows
+
 ```bash
 git config --global merge.tool p4merge
 git config --global merge.tool p4merge.cmd \
@@ -580,32 +596,38 @@ git config --global merge.tool p4merge.cmd \
 ### Stashing files
 
 Stash the changes in your working tree
+
 ```bash
 git stash
 ```
 
 Apply a stash to the current working tree
+
 ```bash
 git stash apply
 ```
 
 Or to apply and remove from the stash, use:
+
 ```bash
 git stash pop
 ```
 
 List the available stashes
+
 ```bash
 git stash list
 ```
 
 Create a stash in patch mode
+
 ```bash
 git stash save --patch
 # launches editor
 ```
 
 Delete stashes
+
 ```bash
 git stash drop <stash name>
 
@@ -614,12 +636,15 @@ git stash clear
 ```
 
 Create a branch from an existing stash
+
 ```bash
 git stash branch [<stash name>]
 ```
 
 ### Cherry-Picking commits
+
 Merge a single commit from another branch into your local one
+
 ```bash
 git cherry-pick <some commit id>
 git cherry-pick release_1.0
@@ -627,18 +652,21 @@ git cherry-pick a742c12
 ```
 
 Cherry-pick but edit the commit message before committing
+
 ```bash
 git cherry-pick --edit release_1.0
 git cherry-pick -e release_1.0
 ```
 
 Cherry-pick but don't commit
+
 ```bash
 git cherry-pick --no-commit release_1.0
 git cherry-pick -n release_1.0
 ```
 
 Add a 'signed-off-by' line to the commit message
+
 ```bash
 git cherry-pick --signoff release_1.0
 git cherry-pick -s release_1.0
@@ -647,6 +675,7 @@ git cherry-pick -s release_1.0
 ### Controlling how you replay commits
 
 Start interactive rebase
+
 ```bash
 git rebase -i <commit id>
 git rebase -i HEAD~5
@@ -656,6 +685,7 @@ git rebase -i HEAD^^^^^
 ### Moving branches
 
 Move branch better-widget from next-release to master
+
 ```bash
 git rebase --onto master next-release better-widget
 ```
@@ -667,7 +697,7 @@ master
         better-widget
 
 # After
-master 
+master
     next-release
     better-widget
 ```
@@ -677,16 +707,19 @@ master
 ### Viewing the log
 
 View a reverse chronological list of all commits
+
 ```bash
 git log
 ```
 
 View the log with one shortened commit ID and subject
+
 ```bash
 git log --oneline
 ```
 
 View the last N commits
+
 ```bash
 git log -N
 git log -5
@@ -696,6 +729,7 @@ git log HEAD~10..HEAD
 ```
 
 Show the changes made in the latest commit
+
 ```bash
 git log -1 -p HEAD
 ```
@@ -703,12 +737,14 @@ git log -1 -p HEAD
 ### Filtering the log output
 
 Limit the log output to a single file or directory
+
 ```bash
 git log -- some/path
 git log -- some_file
 ```
 
 View the commits in the last week
+
 ```bash
 git log --since="1 week"
 git log --after="7 days"
@@ -716,6 +752,7 @@ git log --since="168 hours"
 ```
 
 View the commits prior to the last week
+
 ```bash
 git log --before="1 week"
 git log --until="7 days"
@@ -723,11 +760,13 @@ git log --before="168 hours"
 ```
 
 View the log entries by a single committer
+
 ```bash
 git log --author="Some user"
 ```
 
 View the log entries containing a regular expression
+
 ```bash
 git log --grep="Some [Rr]eg[Ee]x"
 git log --grep="some regex" --regexp-ignore-case
@@ -737,22 +776,26 @@ git log --grep="some regex" -i
 ### Comparing differences
 
 View the differences between the current working tree and the staging area
+
 ```bash
 git diff
 ```
 
 View the differences between the staged changes and repository
+
 ```bash
 git diff --staged
 ```
 
 View the differences between the working tree and a commit in the repository
+
 ```bash
 git diff HEAD
 git diff Commit ID
 ```
 
 View the differences between two "commits"
+
 ```bash
 git diff first second
 git diff first..second
@@ -761,39 +804,47 @@ git diff 23as45..1e234c
 ```
 
 Limit the diff output to a specific path
+
 ```bash
 git diff -- path/
 ```
 
 ### Generating statistics about changes
+
 Show stats between the last ten commits
+
 ```bash
 git diff --stat HEAD~10
 git diff --stat HEAD~10 HEAD
 ```
 
 Show the statistics between two commits
+
 ```bash
 git diff --stat first second
 git diff --stat 234ef2 1e231w
 ```
 
 Show the number of files changed, inserts, and delete the last ten commits
+
 ```bash
 git diff --shortsat HEAD~10
 ```
 
 Show stats in a parseable format
+
 ```bash
 git diff --numstat HEAD~10
 ```
 
 Show the patch in addition to the statistical information
+
 ```bash
 git diff --stat -p HEAD^
 ```
 
 Show statistics about commits in the log
+
 ```bash
 git log --stat
 git log --shortstat
@@ -802,16 +853,19 @@ git log --shortstat
 ### Assigning blame
 
 Display file with entire line-by-line commit information
+
 ```bash
 git blame some/file
 ```
 
 Start the output of blame at line 10
+
 ```bash
 git blame -L 10 some/file
 ```
 
 Limit the output of blame to 10 lines 10 through 20
+
 ```bash
 git blame -L 10,20 some/file
 git blame -L 10,+11 some/file
@@ -819,40 +873,48 @@ git blame -L 10,-11 some/file
 ```
 
 Show ten lines of output from blame starting at a posix regular expression
+
 ```bash
 git blame -L "/dev to_s/",+10 some/file
 ```
 
 Check the history to see the change was moved, and display that information
+
 ```bash
 git blame -M some/file
 ```
 
 Check the history to see whether the change was copied from somewhere else or
 moved around within the file and display that information
+
 ```bash
 git blame -C some/file
 ```
 
 ## Fixing things
+
 ### Fixing Commits
 
 Amend the previous commit
+
 ```bash
 git commit --amend
 ```
 
 Amend the previous commit, and keep the same log message
+
 ```bash
 git commit --amend -C HEAD
 ```
 
 Fix the previous commit by removing it entirely
+
 ```bash
 git reset --hard HEAD^
 ```
 
 Use interactive rebase to edit a commit other than the last one
+
 ```bash
 git rebase -i HEAD~3
 # Launches editor.  Mark the first commit (the one you want to change as "edit"
@@ -863,19 +925,23 @@ git rebase --continue
 ```
 
 ### Reverting commits
+
 Revert a particular commit
+
 ```bash
 git revert <commit id>
 git revert de231fa
 ```
 
 Revert a particular commit, and use the default message
+
 ```bash
 git revert --not-edit <commit id>
 git revert --no-edit de324fa
 ```
 
 Revert a commit, but don't commit the change
+
 ```bash
 git revert --no-commit <commit id>
 git revert -n <commit id>
@@ -884,28 +950,33 @@ git revert -n <commit id>
 ### Resetting staged changes and commits
 
 Reset staged changes, but don't erase any changes
+
 ```bash
 git reset HEAD
 git reset HEAD <file1> [<file2> <etc>]
 ```
 
 Completely undo the last commit
+
 ```bash
 git checkout HEAD <file or path to reset>
 ```
 
 Completely remove the last three commits
+
 ```bash
 git reset --hard HEAD^^^
 git reset --hard HEAD~3
 ```
 
-Reset last commit and stage the changes 
+Reset last commit and stage the changes
+
 ```bash
 git reset --soft HEAD^
 ```
 
 Undo the last change to HEAD
+
 ```bash
 git reset ORIG_HEAD
 # if you want to completely remove any changes
@@ -915,6 +986,7 @@ git reset --hard ORIG_HEAD
 ### Erasing commits
 
 Erase with an interactive rebase
+
 ```bash
 git rebase -i <commit to erase>
 git rebase -i c2d2245^
@@ -922,11 +994,13 @@ git rebase -i c2d2245^
 ```
 
 Erase with git rebase --onto
+
 ```bash
 git rebase --onto c2d2245 HEAD^ HEAD
 ```
 
 Erase the last commit
+
 ```bash
 git reset --hard HEAD^
 ```
@@ -934,6 +1008,7 @@ git reset --hard HEAD^
 ### Finding bugs with bisect
 
 Use bisect to narrow down the buggy commit
+
 ```bash
 git bisect start
 git bisect bad
@@ -946,11 +1021,13 @@ git bisect reset
 ```
 
 Use a shortcut to start bisect with HEAD beaing bad
+
 ```bash
 git bisect start HEAD <some good commit id>
 ```
 
 Use a shortcut to start bisect with HEAD being bad
+
 ```bash
 git bisect start HEAD <some good commit id>
 ```
@@ -965,11 +1042,13 @@ git bisect reset
 ```
 
 Use a shortcut to start bisect with HEAD being bad
+
 ```bash
 git bisect start HEAD <some good commit id>
 ```
 
 Use an automated script to test commits
+
 ```bash
 git bisect start HEAD <some good commit id>
 git bisect run /path/to/test/script
@@ -980,16 +1059,18 @@ git bisect reset
 ### Retrieving "lost" commits
 
 View the reflog
+
 ```bash
 git reflog
 ```
 
 Retrieve a lost commit
+
 ```bash
-# lose a commit 
+# lose a commit
 mkdir work/tmp-repo && cd work/tmp-repo
 git init
-for i in a b c d 
+for i in a b c d
 do echo "simple $i" >> $i && git add $i && git commit -m "simple $i"
 done
 
@@ -1003,6 +1084,7 @@ git log --oneline
 ### Exporting your repository
 
 Create a tar.gz file of the latest changes in master
+
 ```bash
 git archive --format=tar \
 --prefix=my-project-latest/ \
@@ -1015,6 +1097,7 @@ gzip my-project-latest
 ```
 
 Create a zip of the repository at tag v1.0.2
+
 ```bash
 git archive --format=zip \
 --prefix=my-project-1.0.2/ \
@@ -1026,6 +1109,7 @@ v1.0.2 -o myproject-1.0.2.zip
 ```
 
 Export one directory
+
 ```bash
 git archive --format=zip \
 --prefix=my-project/ \
@@ -1035,21 +1119,53 @@ HEAD:<some directory> > my-project.zip
 ### Doing some git housekeeping
 
 Run garbage collection
+
 ```bash
 git gc
 ```
 
 Run garbage collection in the most optimized way
+
 ```bash
 git gc --aggressive
 ```
 
+Remove 'loose objects' that are older than a week
+git gc --prune="1 week"
 
+### Syncing with subversion
 
+Create a git clone of a standard subversion repository
 
+```bash
+git svn clone -s svn://example.com/repo
+```
 
+Perform the equivalent of an svn update
 
+```bash
+git svn rebase
+```
 
+Push changes back to upstream subversion repository
 
+```bash
+git svn dcommit
+# or to see what commits would be sent back upstream
+git svn dcommit -n
+```
 
+### Initialize bare repositories
 
+Initialize a bare repository
+
+```bash
+git init --bare /path/to/some/repo.git
+```
+
+Create a bare repository copy of a remote repository
+
+```bash
+git clone --mirror <remote repository>
+git clone --mirror /work/repo
+```
