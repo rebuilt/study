@@ -863,4 +863,92 @@ git rebase --continue
 ```
 
 ### Reverting commits
+Revert a particular commit
+```bash
+git revert <commit id>
+git revert de231fa
+```
+
+Revert a particular commit, and use the default message
+```bash
+git revert --not-edit <commit id>
+git revert --no-edit de324fa
+```
+
+Revert a commit, but don't commit the change
+```bash
+git revert --no-commit <commit id>
+git revert -n <commit id>
+```
+
+### Resetting staged changes and commits
+
+Reset staged changes, but don't erase any changes
+```bash
+git reset HEAD
+git reset HEAD <file1> [<file2> <etc>]
+```
+
+Completely undo the last commit
+```bash
+git checkout HEAD <file or path to reset>
+```
+
+Completely remove the last three commits
+```bash
+git reset --hard HEAD^^^
+git reset --hard HEAD~3
+```
+
+Reset last commit and stage the changes 
+```bash
+git reset --soft HEAD^
+```
+
+Undo the last change to HEAD
+```bash
+git reset ORIG_HEAD
+# if you want to completely remove any changes
+git reset --hard ORIG_HEAD
+```
+
+### Erasing commits
+
+Erase with an interactive rebase
+```bash
+git rebase -i <commit to erase>
+git rebase -i c2d2245^
+# delete the line that contains c2d2245.  Save and exit.
+```
+
+Erase with git rebase --onto
+```bash
+git rebase --onto c2d2245 HEAD^ HEAD
+```
+
+Erase the last commit
+```bash
+git reset --hard HEAD^
+```
+
+### Finding bugs with bisect
+
+Use bisect to narrow down the buggy commit
+```bash
+git bisect start
+git bisect bad
+git bisect good <some commit id>
+# Mark each commit as good or bad until you have narrowed the list of commits
+down to the commit that introduces the bug.  Once you've found the commit and
+figured out how to address it, run the following to return back to the branch
+you started at
+git bisect reset
+```
+
+Use a shortcut to start bisect with HEAD beaing bad
+```bash
+git bisect start HEAD <some good commit id>
+```
+
+
 
