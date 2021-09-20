@@ -23,6 +23,6 @@ Add private key
 $ ssh-add ~/.ssh/id_ed25519
 ```
 
-
+# Connect to server
 
 
