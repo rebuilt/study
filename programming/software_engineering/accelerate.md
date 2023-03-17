@@ -44,6 +44,11 @@ theme:
 - Support test data management: 5
 - Shift left on security: 5
 - Implement Continous Delivery: 5
+
+# Shift left on security
+Management -> Product -> Development -> QA -> Operations -> Security
+
+Management -> Product -> Security -> Development -> QA -> Operations
   
 # Architecture
 - A Loosly Coupled Architecture: 2
@@ -62,12 +67,23 @@ theme:
 - Improve processes and manage work-in-process limits: NA
 - Visualize work to monitor quality and communicate throughout the team: NA
 
+
 # Cultural
 - Support a generative Culture: 5
 - Encourage and Support Learning: 3
 - Support and Facilitate Collaboration among teams: NA
 - Provide resources and tools that make work meaningful: 5
 - Support or embody Transformational Leadership: 
+
+- “Dream no small dreams for they have no power to move the hearts of men.”
+ Johann Wolfgang von Goethe
+
+# Transformational leadership
+- vision 
+- intellectual stimulation
+- inspirational communication
+- supportive leadership 
+- personal recognition.
 
 # Conclusions
 - These capabilities are not a checklist to be completed

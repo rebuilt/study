@@ -1,0 +1,2 @@
+#!/bin/bash
+pandoc accelerate.md -t beamer -o accelerate.pdf
