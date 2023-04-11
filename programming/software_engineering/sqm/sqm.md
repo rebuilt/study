@@ -60,6 +60,9 @@
   * On a team of one the only way to know you've introduced a regression is to write tests
   * It's a million times harder to debug production so be proactive
    
+# Github copilot
+  * It makes me faster writing boilerplate code 
+  
 # Code quality
   * Do as little as possible to get the story done
   * If it's hard to reason about, refactor it
@@ -78,12 +81,14 @@
   * Make time to learn
   * On a small team you have to know a little of everything
    
+# Open source
 # The meetings that work for us
   * stand up
   * weekly goals
   * retros
   * ipm
   * speedback
+  
 
 # Four key metrics
   * Change lead time
