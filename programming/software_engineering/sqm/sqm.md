@@ -9,6 +9,7 @@
 # MCIEA
   * Consortium of districts in the state of Massachusetts
 
+
 # A company was brought in to modernize the application
   * 50 person company 
   * 10 years of experience
@@ -28,6 +29,7 @@
   * Delivered the welcome, overview, and browse
   * Upgraded the application from rails 5.0.1 now the latest version of 7
   * Two apps live in the same codebase
+  * All happy families are alike; each unhappy family is unhappy in its own way.
 
 # RPP project
   * The success of the MCIEA project led to a new project with the district of Lowell
