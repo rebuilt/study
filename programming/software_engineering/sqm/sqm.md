@@ -4,11 +4,12 @@
   * He created useful software that schools used to make decisions
   * Interesting experiments were done: twilio
   * Field testing the school quality framework
+  * All happy families are alike; each unhappy family is unhappy in its own way.
 
 # MCIEA
   * Consortium of districts in the state of Massachusetts
 
-# Another company brought in to modernize the application
+# A company was brought in to modernize the application
   * 50 person company 
   * 10 years of experience
   * Used by 1 in 5 schools
@@ -41,57 +42,48 @@
 # Team
   * One Developer
   * One Product Manager
-   
+
 # Rails allows fast prototyping
   * Rails allows us to get a prototype up and running quickly
   * The prototype can be used to get feedback from the client
+   
+# All the work we didn't do
   * Rails is still slower than a designer
-  * There is no faster code than code you don't have to write
-  * Working out the designs allows you skip implementations that were doomed to fail from the start
-  * Figma: All the work we didn't do
+  * Figma
+  * Designers are still slower than gathering requirements
+  * Miro
 
-# Points
+# Work in small batches
   * 1 point = 1 day
   * 2 points = a few days
   * 3 points = Stories I say no to
-
-# Test everything
-  * I hate testing but I write them anyway
-  * On a team of one the only way to know you've introduced a regression is to write tests
-  * It's a million times harder to debug production so be proactive
-   
-# Github copilot
-  * It makes me faster writing boilerplate code 
   
 # Code quality
-  * Do as little as possible to get the story done
+  * Write only enough code to complete the story
+  * This includes tests
+  * Each time I return to a file to modify or add features:
   * If it's hard to reason about, refactor it
-  * Leave the code better than you found it
+  * This is only possible because tests are already written
+  * I leave it better than I found it
+  * High churn files eventually become better written software
+  * Ugly code that never needs to be touched isn't a problem
   * The ultimate goal is working software
-  
+   
 # Automate as much as possible
   * Enrollment numbers
   * Staffing data
   * Admin data
  
+# Github copilot
+  * Is there a way to code faster?
+  * It makes me faster writing boilerplate code 
+  
 # Continuous Improvement
-  * We don't have time or manpower to do things inefficiently
+  * Retros
+  * Speedback
   
 # Make space for learning
   * Make time to learn
   * On a small team you have to know a little of everything
-   
-# Open source
-# The meetings that work for us
-  * stand up
-  * weekly goals
-  * retros
-  * ipm
-  * speedback
-  
 
-# Four key metrics
-  * Change lead time
-    * Deployment frequency
-    * Change failure rate
-    * 
+# Open source
