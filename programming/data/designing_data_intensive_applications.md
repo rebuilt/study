@@ -109,5 +109,3 @@ that country and your own, you risk being locked out of the service due to
 imposed sanctions.
 - The cloud provider needs to be trusted to keep the data secure, which can•
 complicate the process of complying with privacy and security regulations.
-
-
