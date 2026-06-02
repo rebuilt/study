@@ -109,3 +109,44 @@ that country and your own, you risk being locked out of the service due to
 imposed sanctions.
 - The cloud provider needs to be trusted to keep the data secure, which can•
 complicate the process of complying with privacy and security regulations.
+
+# Chapter 2 - Defining Nonfunctional Requirements
+
+| Requirement | Description |
+| --- | --- | 
+|Functional Requirements |  features a system will implement | 
+| Nonfunctional Requirements | e.g. fast, reliable, secure, legally compliant, and easy to maintain |
+
+- Defining and measuring the performance of a system
+- What it means for a service to be reliable—namely, continuing to work correctly,
+- when things go wrong
+- Allowing a system to be scalable by having efficient ways of adding computing
+capacity as the load on the system grows
+- Making it easier to maintain a system in the long term
+
+## Representing Users, Posts, and Follows
+
+SELECT posts.*, users.* FROM posts
+ JOIN follows ON posts.sender_id = follows.followee_id
+ JOIN users ON posts.sender_id = users.id
+ WHERE follows.follower_id = current_user
+ ORDER BY posts.timestamp DESC
+ LIMIT 1000
+
+ This query is also quite expensive: if a user is following 200 people, the query needs
+to fetch a list of recent posts by each of those 200 people and merge those lists. Two
+million timeline queries per second times 200 followed accounts makes 400 million
+lookups per second—a huge number.
+
+## Materializing and Updating Timelines
+
+Imagine that for each user, we store a data structure containing their home timeline
+(i.e., the recent posts by people they are following). Every time a user makes a
+post, we look up all their followers and insert that post into the home timeline of
+each follower—like delivering a message to a mailbox. Now when a user logs in,
+we can simply give them this precomputed home timeline. Moreover, to receive a
+notification about any new posts on their timeline, the user’s client simply needs to
+subscribe to the stream of posts being added to their home timeline.
+
+This process of precomputing and updating the results of a query is called materiali‐
+zation, and the timeline cache is an example of a materialized view
